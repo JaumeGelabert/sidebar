@@ -18,6 +18,7 @@ import {
   SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
+  SidebarMenuAction,
   SidebarMenuButton,
   SidebarMenuItem
 } from "@/components/ui/sidebar";
@@ -26,11 +27,13 @@ import {
   BoxIcon,
   CheckIcon,
   ChevronDownIcon,
+  CopyIcon,
   EllipsisIcon,
   FocusIcon,
   HomeIcon,
   InboxIcon,
   Layers2Icon,
+  PlayIcon,
   StarIcon,
   UsersIcon
 } from "lucide-react";
@@ -184,29 +187,11 @@ export default function AppSidebar() {
               <SidebarGroupContent>
                 <SidebarMenu>
                   <SidebarMenuItem>
-                    <SidebarMenuButton className="text-zinc-700 hover:text-black transition-colors cursor-pointer">
-                      <StarIcon className="w-4 h-4" />
-                      Projects
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                </SidebarMenu>
-              </SidebarGroupContent>
-              <SidebarGroupContent>
-                <SidebarMenu>
-                  <SidebarMenuItem>
-                    <SidebarMenuButton className="text-zinc-700 hover:text-black transition-colors cursor-pointer">
-                      <Layers2Icon className="w-4 h-4" />
-                      Views
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                </SidebarMenu>
-              </SidebarGroupContent>
-              <SidebarGroupContent>
-                <SidebarMenu>
-                  <SidebarMenuItem>
-                    <SidebarMenuButton className="text-zinc-700 hover:text-black transition-colors cursor-pointer">
-                      <EllipsisIcon className="w-4 h-4" />
-                      More
+                    <SidebarMenuButton className="text-zinc-700 hover:text-black transition-colors cursor-pointer font-medium">
+                      <div className="h-4 w-4 rounded-full border border-blue-500 border-[1.5px] flex flex-col justify-center items-center">
+                        <PlayIcon className="w-2 h-2" fill="currentColor" />
+                      </div>
+                      Current cycle
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 </SidebarMenu>
@@ -223,36 +208,92 @@ export default function AppSidebar() {
               </CollapsibleTrigger>
             </SidebarGroupLabel>
             <CollapsibleContent className="mb-4">
-              <SidebarGroupContent>
-                <SidebarMenu>
-                  <SidebarMenuItem>
-                    <SidebarMenuButton className="text-zinc-700 hover:text-black transition-colors cursor-pointer">
-                      <UsersIcon className="w-4 h-4" />
-                      Team 1
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                </SidebarMenu>
-              </SidebarGroupContent>
-              <SidebarGroupContent>
-                <SidebarMenu>
-                  <SidebarMenuItem>
-                    <SidebarMenuButton className="text-zinc-700 hover:text-black transition-colors cursor-pointer">
-                      <Layers2Icon className="w-4 h-4" />
-                      Views
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                </SidebarMenu>
-              </SidebarGroupContent>
-              <SidebarGroupContent>
-                <SidebarMenu>
-                  <SidebarMenuItem>
-                    <SidebarMenuButton className="text-zinc-700 hover:text-black transition-colors cursor-pointer">
-                      <EllipsisIcon className="w-4 h-4" />
-                      More
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                </SidebarMenu>
-              </SidebarGroupContent>
+              <Collapsible className="group/team1">
+                <SidebarGroup className="py-0 px-0">
+                  <SidebarGroupLabel asChild>
+                    <CollapsibleTrigger className="flex flex-row justify-start items-center w-fit gap-2">
+                      <div className="h-3 w-3 rounded bg-red-500"></div>
+                      Frontend
+                      <ChevronDownIcon className="text-zinc-500 transition-transform group-data-[state=open]/team1:rotate-180" />
+                    </CollapsibleTrigger>
+                  </SidebarGroupLabel>
+                  <CollapsibleContent className="mb-4 ml-4">
+                    <SidebarGroupContent>
+                      <SidebarMenu>
+                        <SidebarMenuItem>
+                          <SidebarMenuButton className="text-zinc-700 hover:text-black transition-colors cursor-pointer">
+                            <CopyIcon className="w-4 h-4" />
+                            Issues
+                          </SidebarMenuButton>
+                        </SidebarMenuItem>
+                      </SidebarMenu>
+                    </SidebarGroupContent>
+                    <SidebarGroupContent>
+                      <SidebarMenu>
+                        <SidebarMenuItem>
+                          <SidebarMenuButton className="text-zinc-700 hover:text-black transition-colors cursor-pointer">
+                            <BoxIcon className="w-4 h-4" />
+                            Projects
+                          </SidebarMenuButton>
+                        </SidebarMenuItem>
+                      </SidebarMenu>
+                    </SidebarGroupContent>
+                    <SidebarGroupContent>
+                      <SidebarMenu>
+                        <SidebarMenuItem>
+                          <SidebarMenuButton className="text-zinc-700 hover:text-black transition-colors cursor-pointer">
+                            <Layers2Icon className="w-4 h-4" />
+                            Views
+                          </SidebarMenuButton>
+                        </SidebarMenuItem>
+                      </SidebarMenu>
+                    </SidebarGroupContent>
+                  </CollapsibleContent>
+                </SidebarGroup>
+              </Collapsible>
+              <Collapsible className="group/team2">
+                <SidebarGroup className="pt-0 px-0">
+                  <SidebarGroupLabel asChild>
+                    <CollapsibleTrigger className="flex flex-row justify-start items-center w-fit gap-2">
+                      <div className="h-3 w-3 rounded bg-emerald-500"></div>
+                      Backend
+                      <ChevronDownIcon className="text-zinc-500 transition-transform group-data-[state=open]/team2:rotate-180" />
+                    </CollapsibleTrigger>
+                  </SidebarGroupLabel>
+                  <CollapsibleContent className="mb-4 ml-4">
+                    <SidebarGroupContent>
+                      <SidebarMenu>
+                        <SidebarMenuItem>
+                          <SidebarMenuButton className="text-zinc-700 hover:text-black transition-colors cursor-pointer">
+                            <CopyIcon className="w-4 h-4" />
+                            Issues
+                          </SidebarMenuButton>
+                        </SidebarMenuItem>
+                      </SidebarMenu>
+                    </SidebarGroupContent>
+                    <SidebarGroupContent>
+                      <SidebarMenu>
+                        <SidebarMenuItem>
+                          <SidebarMenuButton className="text-zinc-700 hover:text-black transition-colors cursor-pointer">
+                            <BoxIcon className="w-4 h-4" />
+                            Projects
+                          </SidebarMenuButton>
+                        </SidebarMenuItem>
+                      </SidebarMenu>
+                    </SidebarGroupContent>
+                    <SidebarGroupContent>
+                      <SidebarMenu>
+                        <SidebarMenuItem>
+                          <SidebarMenuButton className="text-zinc-700 hover:text-black transition-colors cursor-pointer">
+                            <Layers2Icon className="w-4 h-4" />
+                            Views
+                          </SidebarMenuButton>
+                        </SidebarMenuItem>
+                      </SidebarMenu>
+                    </SidebarGroupContent>
+                  </CollapsibleContent>
+                </SidebarGroup>
+              </Collapsible>
             </CollapsibleContent>
           </SidebarGroup>
         </Collapsible>
