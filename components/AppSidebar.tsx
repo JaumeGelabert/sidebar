@@ -1,24 +1,29 @@
 import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger
+} from "@/components/ui/collapsible";
+import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuTrigger,
   DropdownMenuSub,
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
-  DropdownMenuLabel
+  DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarGroup,
+  SidebarGroupAction,
   SidebarGroupContent,
   SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
-  SidebarMenuAction,
   SidebarMenuButton,
   SidebarMenuItem
 } from "@/components/ui/sidebar";
@@ -30,23 +35,17 @@ import {
   CopyIcon,
   EllipsisIcon,
   FocusIcon,
-  HomeIcon,
   InboxIcon,
   Layers2Icon,
   PlayIcon,
-  StarIcon,
-  UsersIcon
+  Plus,
+  PlusIcon
 } from "lucide-react";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger
-} from "@/components/ui/collapsible";
-
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 export default function AppSidebar() {
   return (
     <Sidebar>
-      <SidebarHeader>
+      <SidebarHeader className="flex flex-row justify-between items-center">
         <DropdownMenu>
           <DropdownMenuTrigger className="w-fit focus:outline-none">
             <div className="group/dropdown flex flex-row justify-start items-center gap-1 w-fit hover:bg-zinc-100 p-1 rounded-md cursor-pointer transition-all duration-300">
@@ -113,9 +112,13 @@ export default function AppSidebar() {
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
+        <Avatar>
+          <AvatarImage src="https://github.com/jaumegelabert.png" />
+          <AvatarFallback>CN</AvatarFallback>
+        </Avatar>
       </SidebarHeader>
       <SidebarContent>
-        <SidebarGroup className="pt-0">
+        <SidebarGroup className="py-0">
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
@@ -134,7 +137,7 @@ export default function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
         <Collapsible className="group/workspace">
-          <SidebarGroup className="pb-0">
+          <SidebarGroup className="py-0">
             <SidebarGroupLabel asChild>
               <CollapsibleTrigger>
                 Workspace
